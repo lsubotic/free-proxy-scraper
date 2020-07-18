@@ -6,12 +6,14 @@ import os
 
 
 TIMEOUT = 7  # Proxy request timeout
-file_path = 'working_proxies.csv'  # Write file
+file_path = 'working_proxies.csv'  # File to write in
 count_working_proxies = 0
 
 
 def proxy_scrape():
-    # Gets all proxies on the page and returns them in a set()
+    """
+    Gets all proxies on the page and returns them in a set()
+    """
     url = r'https://free-proxy-list.net'
 
     r = requests.get(url, timeout=7)
@@ -35,8 +37,9 @@ def proxy_scrape():
 
 
 def proxy_test(proxy):
-    # Tests the scraped proxies and writes the working ones along with the time it took them to load the page to an .csv file
-
+    """
+    Tests the scraped proxies and writes the working ones along with the time it took them to load the page to an .csv file
+    """
     # Using httpbin used to test the proxies
     url = 'http://httpbin.org/ip'
     proxies = {
